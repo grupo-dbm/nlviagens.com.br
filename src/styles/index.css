@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+@import 'swiper/css';
+
+/*
+ * Fontes locais do site antigo (assets/fonts). Só os pesos usados; o Montserrat
+ * do site antigo só tinha o Bold, então todo título em Montserrat sai em 700.
+ */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Sem isso o group-hover não dispara em telas sem mouse nem nos testes headless. */
+@custom-variant hover (&:hover);
+
+@theme {
+  --font-sans: 'Inter';
+  --font-title: 'Montserrat';
+
+  --color-darkest-blue: #001c42;
+  --color-dark-blue: #003175;
+  --color-blue: #0050be;
+  --color-yellow: #fff400;
+  --color-gray: #454545;
+  --color-light-gray: #afb6c8;
+  --color-light-green: #079461;
+  --color-green-primary: #214b39;
+  --color-darkest-text: #102643;
+}
+
+/* Padrões do Tailwind v3 (o site antigo) que mudaram no v4. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #9ca3af;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Listas e títulos dos textos vindos do antigo editor do CMS. */
+@utility rich-text {
+  & h1,
+  & h2,
+  & h3 {
+    @apply my-6 text-lg font-semibold text-blue;
+  }
+
+  & ul {
+    @apply list-inside list-disc;
+  }
+}
